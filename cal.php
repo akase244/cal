@@ -44,14 +44,7 @@ $weeks = [
 ];
 
 // 曜日を出力
-foreach ($weeks as $key => $week) {
-    // 曜日の後ろをスペース1桁で埋める
-    echo $week . ' ';
-    // 土曜日の場合は改行する
-    if ($key === 6) {
-        echo PHP_EOL;
-    }
-}
+echo implode(' ', $weeks) . PHP_EOL;
 
 // 初日の曜日が始まるまでスペースで埋める
 foreach ($weeks as $key => $week) {
