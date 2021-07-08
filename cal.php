@@ -16,7 +16,8 @@ if (isset($argv[1]) && strlen($argv[1]) === 6) {
 // タイトルを出力
 $month = (int) $dt->format('m');
 $year = (int) $dt->format('Y');
-echo '      ' . (string) $month . '月 ' . (string) $year . PHP_EOL;
+$title = "      %s月 %s\n";
+echo sprintf($title, (string) $month, (string) $year);
 
 // 初日
 $firstDt = $dt->modify('first day of');
