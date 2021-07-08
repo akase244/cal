@@ -47,14 +47,12 @@ $weeks = [
 echo implode(' ', $weeks) . PHP_EOL;
 
 // 初日の曜日が始まるまでスペースで埋める
-foreach ($weeks as $key => $week) {
-    if ($key < $firstDayOfWeek) {
-        // 1日分をスペース3桁とする
-        echo '   ';
-    } else {
-        break;
-    }
+$spaces = [];
+for ($i = 0; $i < $firstDayOfWeek; $i++) {
+    // 1日分をスペース3桁とする
+    $spaces[] = '   ';
 }
+echo implode($spaces);
 
 $weekPosition = $firstDayOfWeek;
 for ($day = $firstDay; $day <= $lastDay; $day++) {
@@ -76,14 +74,10 @@ for ($day = $firstDay; $day <= $lastDay; $day++) {
 // 末日が土曜日終わり以外の場合
 if ($lastDayOfWeek !== 6) {
     // 末日の曜日以降から土曜日までをスペースで埋める
-    foreach ($weeks as $key => $week) {
-        if ($key > $lastDayOfWeek) {
-            // 1日分をスペース3桁とする
-            echo '   ';
-        }
-        // 土曜日の場合は改行する
-        if ($key === 6) {
-            echo PHP_EOL;
-        }
+    $spaces = [];
+    for ($i = $lastDayOfWeek + 1; $i <= 6; $i++) {
+        // 1日分をスペース3桁とする
+        $spaces[] = '   ';
     }
+    echo implode($spaces) . PHP_EOL;
 }
