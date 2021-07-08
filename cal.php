@@ -56,12 +56,13 @@ echo implode($spaces);
 
 $weekPosition = $firstDayOfWeek;
 for ($day = $firstDay; $day <= $lastDay; $day++) {
+    $format = '%s ';
     // 日付が1桁の場合は10の位をスペースで埋める
     if (strlen((string) $day) === 1) {
-        echo ' ';
+        $format = ' ' . $format;
     }
-    // 日付の後ろをスペース1桁で埋める
-    echo $day . ' ';
+    // [日付+スペース1桁]の形式で出力
+    echo sprintf($format, (string) $day);
     // 土曜日の場合は改行する
     if ($weekPosition === 6) {
         $weekPosition = 0;
