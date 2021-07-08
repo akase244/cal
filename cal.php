@@ -47,10 +47,12 @@ $weeks = [
 echo implode(' ', $weeks) . PHP_EOL;
 
 // 初日の曜日が始まるまでスペースで埋める
+$spaces = [];
 for ($i = 0; $i < $firstDayOfWeek; $i++) {
     // 1日分をスペース3桁とする
-    echo '   ';
+    $spaces[] = '   ';
 }
+echo implode($spaces);
 
 $weekPosition = $firstDayOfWeek;
 for ($day = $firstDay; $day <= $lastDay; $day++) {
@@ -72,9 +74,10 @@ for ($day = $firstDay; $day <= $lastDay; $day++) {
 // 末日が土曜日終わり以外の場合
 if ($lastDayOfWeek !== 6) {
     // 末日の曜日以降から土曜日までをスペースで埋める
+    $spaces = [];
     for ($i = $lastDayOfWeek + 1; $i <= 6; $i++) {
         // 1日分をスペース3桁とする
-        echo '   ';
+        $spaces[] = '   ';
     }
-    echo PHP_EOL;
+    echo implode($spaces) . PHP_EOL;
 }
