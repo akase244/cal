@@ -14,10 +14,8 @@ if (isset($argv[1]) && strlen($argv[1]) === 6) {
 }
 
 // タイトルを出力
-$month = (int) $dt->format('m');
-$year = (int) $dt->format('Y');
 $title = "      %s月 %s\n";
-echo sprintf($title, (string) $month, (string) $year);
+echo sprintf($title, $dt->format('n'), $dt->format('Y'));
 
 // 初日
 $firstDt = $dt->modify('first day of');
